@@ -45,7 +45,7 @@
 - Validamos que las columnas utiles no tengan campos nulos, de ser asi se eliminan esos registros.
   
 
-  ![img.png](img_4.png)
+  ![img.png](assets/img_4.png)
 
 
 - Ya que algunas fecha de nacimiento incian con el año 0 se contempla como datos no utiles, por ello se obtienen las posiciones
@@ -60,7 +60,7 @@
   se guardan su posicion para posteriormente eliminarlos.
 
 
-  ![img.png](img_7.png)
+  ![img.png](assets/img_7.png)
   ![img.png](assets/img_8.png)
   
 
@@ -75,4 +75,4 @@
 - Finalmente eliminamos columnas inncesarias y exportamos el csv final a utilizar.
 
 
-  ![img.png](img_11.png)
+  ![img.png](assets/img_11.png)
