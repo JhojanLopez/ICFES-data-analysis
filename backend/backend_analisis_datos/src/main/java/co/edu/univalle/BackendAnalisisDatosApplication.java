@@ -1,15 +1,22 @@
 package co.edu.univalle;
 
+import co.edu.univalle.database.entities.IcfesData;
 import co.edu.univalle.models.Gender;
 import co.edu.univalle.models.ModelData;
+import co.edu.univalle.services.IcfesDataService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 @SpringBootApplication
 public class BackendAnalisisDatosApplication implements CommandLineRunner {
+	@Autowired
+	IcfesDataService icfesDataService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendAnalisisDatosApplication.class, args);
@@ -17,11 +24,13 @@ public class BackendAnalisisDatosApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-//		int genderRandom = (int)(Math.random()*(3-1)+1);
-//		System.out.println("genderRandom = " + genderRandom);
-//		int scoreRandom = (int)(Math.random()*(501-150)+150);
-//		System.out.println("scoreRandom = " + scoreRandom);
-//		int yearRandom = (int)(Math.random()*(2022-2017)+2017);
-//		System.out.println("yearRandom = " + yearRandom);
+		IcfesData byId = icfesDataService.findById("63744e91921fb24e56c73595");
+//		List<IcfesData> query = icfesDataService.findByPeriodo(2020);
+		//List<IcfesData> query = icfesDataService.findByAll();
+		//if(query.isEmpty()) System.out.println("es nulo o vacio");
+		//else System.out.println(query.toString());
+
+		if (byId==null) System.out.println("es nulo");
+		else System.out.println(byId.toString());
 	}
 }
