@@ -19,16 +19,18 @@ public class IcfesData {
     private String coleBilingue;
     @Field(name = "COLE_CARACTER")
     private String coleCaracter;
-    @Field(name = "COLE_DEPTO_UBICACION")
-    private String coleDeptoUbicacion;//eliminar
+    @Field(name = "COLE_DEPTO_UBICACION")//eliminar
+    private String coleDeptoUbicacion;
     @Field(name = "COLE_JORNADA")
     private String coleJornada;
-    @Field(name = "DESEMP_INGLES")
-    private String desempIngles;//eliminar
+    @Field(name = "DESEMP_INGLES")//eliminar
+    private String desempIngles;
     @Field(name = "ESTU_EDAD")
     private Integer estuEdad;
     @Field(name = "ESTU_MCPIO_RESIDE")
     private String estuMcpioReside;
+    @Field(name = "FAMI_ESTRATOVIVIENDA")
+    private String famiEstratoVivienda;
     @Field(name = "FAMI_EDUCACIONMADRE")//eliminar
     private String famiEducacionMadre;
     @Field(name = "FAMI_EDUCACIONPADRE")//eliminar

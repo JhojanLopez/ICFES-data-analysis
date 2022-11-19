@@ -1,9 +1,7 @@
 package co.edu.univalle.database.repositories;
 
 import co.edu.univalle.database.entities.IcfesData;
-import co.edu.univalle.models.AreaUbicacion;
-import co.edu.univalle.models.Municipios;
-import co.edu.univalle.models.TipoColegio;
+import co.edu.univalle.models.*;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -18,10 +16,14 @@ public interface IcfesDataRepository extends MongoRepository<IcfesData, String> 
     @Query(value = "{}", fields = "{ 'COLE_AREA_UBICACION' : 1, '_id' : 0 }")
     HashSet<AreaUbicacion> findAllAreaUbicacion();
     @Query(value = "{}", fields = "{ 'COLE_CARACTER' : 1, '_id' : 0 }")
-    HashSet<TipoColegio> findAllTipoColegio();
+    HashSet<CaracterColegio> findAllCaracterColegio();
     @Query(value = "{}", fields = "{ 'COLE_JORNADA' : 1, '_id' : 0 }")
-    HashSet<TipoColegio> findAllJornadaColegio();
+    HashSet<JornadaColegio> findAllJornadaColegio();
     @Query(value = "{}", fields = "{ 'FAMI_TIENEINTERNET' : 1, '_id' : 0 }")
-    HashSet<TipoColegio> findAllAccesoInternet();
+    HashSet<AccesoInternet> findAllAccesoInternet();
+    @Query(value = "{}", fields = "{ 'COLE_BILINGUE' : 1, '_id' : 0 }")
+    HashSet<ColegioB> findAllColegioBilingue();
+    @Query(value = "{}", fields = "{ 'FAMI_ESTRATOVIVIENDA' : 1, '_id' : 0 }")
+    HashSet<Estrato> findAllEstrato();
 
 }

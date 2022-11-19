@@ -23,6 +23,7 @@ public class ControllerData {
 
     @GetMapping("/municipio")
     public ResponseEntity<?> getAllMunicipios() {
+        log.info(""+icfesDataRepository.findAllMunicipios().size());
         return ResponseEntity.ok(icfesDataRepository.findAllMunicipios());
     }
 
@@ -33,6 +34,26 @@ public class ControllerData {
 
     @GetMapping("/tipoColegio")
     public ResponseEntity<?> getAllTipoColegio() {
-        return ResponseEntity.ok(icfesDataRepository.findAllTipoColegio());
+        return ResponseEntity.ok(icfesDataRepository.findAllCaracterColegio());
+    }
+
+    @GetMapping("/jornadaColegio")
+    public ResponseEntity<?> getAllJornadaColegio() {
+        return ResponseEntity.ok(icfesDataRepository.findAllJornadaColegio());
+    }
+
+    @GetMapping("/accesoInternet")
+    public ResponseEntity<?> getAllAccesoInternet() {
+        return ResponseEntity.ok(icfesDataRepository.findAllAccesoInternet());
+    }
+
+    @GetMapping("/coleB")
+    public ResponseEntity<?> getAllColeB() {
+        return ResponseEntity.ok(icfesDataRepository.findAllColegioBilingue());
+    }
+
+    @GetMapping("/estrato")
+    public ResponseEntity<?> getAllEstrato() {
+        return ResponseEntity.ok(icfesDataRepository.findAllEstrato());
     }
 }
