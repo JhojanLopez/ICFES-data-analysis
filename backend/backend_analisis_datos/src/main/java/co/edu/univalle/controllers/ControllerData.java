@@ -1,72 +1,38 @@
 package co.edu.univalle.controllers;
 
-import co.edu.univalle.models.Gender;
-import co.edu.univalle.models.ModelData;
+import co.edu.univalle.database.repositories.IcfesDataRepository;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.Year;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+
+import java.util.Arrays;
+
 @Slf4j
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api/v1/data")
 public class ControllerData {
-
-    @GetMapping("/{score}/{year}")
-    public ResponseEntity<?> getData(@PathVariable String score, @PathVariable Integer year) {
-
-        if(score==null || year==null) return ResponseEntity.badRequest().body("se debe poner tanto el puntaje y año para los filtros respectivos /{puntaje}/{año}");
-
-        List<ModelData> modelDataList = generateListRandom();
-
-        if (score.equals("bajo")) {
-            List<ModelData> response = modelDataList.stream()
-                    .filter(m -> m.getYear() == (int)year)
-                    .filter(m -> m.getScore() < 300)
-                    .collect(Collectors.toList());
-
-            return ResponseEntity.ok(response);
-        }
-
-        if (score.equals("alto")){
-            List<ModelData> response = modelDataList.stream()
-                    .filter(m -> m.getYear() == (int)year)
-                    .filter(m -> m.getScore() > 299)
-                    .collect(Collectors.toList());
-
-            return ResponseEntity.ok(response);
-        }
-
-        return ResponseEntity.badRequest().body("el puntaje debe ser alto o bajo. se considera bajo menor a 299 y alto mayor a 300");
+    @Autowired
+    IcfesDataRepository icfesDataRepository;
+    @GetMapping("/mix")//mix?saludo
+    public ResponseEntity<?> mix(@RequestParam(required = false) String saludo, @RequestParam String nombre) {
+        return ResponseEntity.ok(Arrays.asList(saludo,nombre));
     }
 
-    public List<ModelData> generateListRandom() {
-
-        List<ModelData> modelDataList = new ArrayList<>();
-        for (int i = 0; i < 10000; i++) {
-            modelDataList.add(new ModelData(++i, genderGenerator(), scoreGenerator(), yearGenerator()));
-        }
-        return modelDataList;
+    @GetMapping("/municipio")
+    public ResponseEntity<?> getAllMunicipios() {
+        return ResponseEntity.ok(icfesDataRepository.findAllMunicipios());
     }
 
-    private Gender genderGenerator() {
-        int genderRandom = (int) (Math.random() * (3 - 1) + 1);
-        if (genderRandom == 1) return Gender.MASCULINO;
-        return Gender.FEMENINO;
+    @GetMapping("/areaUbicacion")
+    public ResponseEntity<?> getAllAreaUbicacion() {
+        return ResponseEntity.ok(icfesDataRepository.findAllAreaUbicacion());
     }
 
-    private Integer scoreGenerator() {
-        return (int) (Math.random() * (501 - 150) + 150);
+    @GetMapping("/tipoColegio")
+    public ResponseEntity<?> getAllTipoColegio() {
+        return ResponseEntity.ok(icfesDataRepository.findAllTipoColegio());
     }
-
-    private Integer yearGenerator() {
-        return (int) (Math.random() * (2022 - 2017) + 2017);
-    }
-
 }

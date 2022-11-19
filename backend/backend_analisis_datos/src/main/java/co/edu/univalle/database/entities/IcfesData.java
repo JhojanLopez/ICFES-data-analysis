@@ -20,22 +20,20 @@ public class IcfesData {
     @Field(name = "COLE_CARACTER")
     private String coleCaracter;
     @Field(name = "COLE_DEPTO_UBICACION")
-    private String coleDeptoUbicacion;
+    private String coleDeptoUbicacion;//eliminar
     @Field(name = "COLE_JORNADA")
     private String coleJornada;
     @Field(name = "DESEMP_INGLES")
-    private String desempIngles;
+    private String desempIngles;//eliminar
     @Field(name = "ESTU_EDAD")
     private Integer estuEdad;
     @Field(name = "ESTU_MCPIO_RESIDE")
     private String estuMcpioReside;
-    @Field(name = "ESTU_TIPODOCUMENTO")
-    private String estuTipoDocumento;
-    @Field(name = "FAMI_EDUCACIONMADRE")
+    @Field(name = "FAMI_EDUCACIONMADRE")//eliminar
     private String famiEducacionMadre;
-    @Field(name = "FAMI_EDUCACIONPADRE")
+    @Field(name = "FAMI_EDUCACIONPADRE")//eliminar
     private String famiEducacionPadre;
-    @Field(name = "FAMI_TIENECOMPUTADOR")
+    @Field(name = "FAMI_TIENECOMPUTADOR")//eliminar
     private String famiTieneComputador;
     @Field(name = "FAMI_TIENEINTERNET")
     private String famiTieneInternet;

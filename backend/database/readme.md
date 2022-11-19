@@ -13,7 +13,7 @@
 
 ## Comandos
 
-- Para correr por primera vez usar:
+- Para correr por primera vez:
   docker compose up -d --force-recreate --no-deps --build mongodb
 
 - Para correr normalmente:
