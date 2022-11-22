@@ -1,46 +1,37 @@
 package co.edu.univalle.database.entities;
 
 import lombok.Data;
-import org.hibernate.annotations.Type;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
-@Document(value = "data")
+@Document(value = "estudiante")
 @Data
-public class IcfesData {
+public class Estudiante {
     @Id
     @Column(name = "_id")
     private String id;
     @Field(name = "COLE_AREA_UBICACION")
     private String coleAreaUbicacion;
     @Field(name = "COLE_BILINGUE")
-    private String coleBilingue;
+    private String coleBilingue;//opc Si, No
     @Field(name = "COLE_CARACTER")
     private String coleCaracter;
-    @Field(name = "COLE_DEPTO_UBICACION")//eliminar
-    private String coleDeptoUbicacion;
     @Field(name = "COLE_JORNADA")
     private String coleJornada;
-    @Field(name = "DESEMP_INGLES")//eliminar
-    private String desempIngles;
     @Field(name = "ESTU_EDAD")
-    private Integer estuEdad;
+    private Integer edad;
+    @Field(name = "ESTU_GENERO")
+    private Character genero;
     @Field(name = "ESTU_MCPIO_RESIDE")
-    private String estuMcpioReside;
+    private String municipio;
     @Field(name = "FAMI_ESTRATOVIVIENDA")
-    private String famiEstratoVivienda;
-    @Field(name = "FAMI_EDUCACIONMADRE")//eliminar
-    private String famiEducacionMadre;
-    @Field(name = "FAMI_EDUCACIONPADRE")//eliminar
-    private String famiEducacionPadre;
-    @Field(name = "FAMI_TIENECOMPUTADOR")//eliminar
-    private String famiTieneComputador;
+    private String estrato;
     @Field(name = "FAMI_TIENEINTERNET")
-    private String famiTieneInternet;
+    private String accesoInternet;//opc Si, No
     @Field(name = "PERIODO")
-    private Integer periodo;
+    private Integer periodo;//opc 2017-2021
     @Field(name = "PUNT_C_NATURALES")
     private Integer puntNaturales;
     @Field(name = "PUNT_INGLES")

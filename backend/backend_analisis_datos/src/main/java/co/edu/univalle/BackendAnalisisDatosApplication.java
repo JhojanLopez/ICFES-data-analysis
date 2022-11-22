@@ -1,24 +1,19 @@
 package co.edu.univalle;
 
-import co.edu.univalle.database.entities.IcfesData;
-import co.edu.univalle.database.repositories.IcfesDataRepository;
-import co.edu.univalle.models.Municipios;
-import co.edu.univalle.services.IcfesDataService;
+import co.edu.univalle.database.repositories.EstudianteRepository;
+import co.edu.univalle.services.estudiante.EstudianteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.HashSet;
-import java.util.List;
-
 @SpringBootApplication
 public class BackendAnalisisDatosApplication implements CommandLineRunner {
 	@Autowired
-	IcfesDataService icfesDataService;
+	EstudianteService estudianteService;
 	
 	@Autowired
-	IcfesDataRepository icfesDataRepository;
+	EstudianteRepository estudianteRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendAnalisisDatosApplication.class, args);
@@ -26,5 +21,6 @@ public class BackendAnalisisDatosApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+
 	}
 }
