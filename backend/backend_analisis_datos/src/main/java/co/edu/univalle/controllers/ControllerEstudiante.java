@@ -25,11 +25,11 @@ public class ControllerEstudiante {
     public ResponseEntity<?> getAllEstudianteByParams
             (@RequestParam(required = false) Integer periodo, @RequestParam(required = false) String coleAreaUbicacion, @RequestParam(required = false) String coleBilingue,
              @RequestParam(required = false) String coleCaracter,@RequestParam(required = false) String coleJornada, @RequestParam(required = false) Character genero,
-             @RequestParam(required = false) String municipio,@RequestParam(required = false) String estrato, @RequestParam(required = false) String accesoInternet) {
+             @RequestParam(required = false) String municipio, @RequestParam(required = false) String accesoInternet) {
 
         try {
             List<Object> params = Arrays.asList(periodo,coleAreaUbicacion, coleBilingue, coleCaracter, coleJornada, genero,
-                    municipio, estrato, accesoInternet);
+                    municipio, accesoInternet);
 
             if (filterService.validateParams(params)) {
                 List<Object> response = filterService.filterHandler(params);

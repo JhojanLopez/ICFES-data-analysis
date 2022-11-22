@@ -25,7 +25,12 @@ public interface EstudianteRepository extends MongoRepository<Estudiante, String
     List<Estudiante> findAll();
     Optional<List<Estudiante>> findByPeriodo(Integer periodo);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacion(Integer periodo, String ubicacion);
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingue(Integer periodo, String bilingue);
     Optional<List<Estudiante>> findByPeriodoAndGenero(Integer periodo, Character genero);
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracter(Integer periodo, String caracter);
+    Optional<List<Estudiante>> findByPeriodoAndColeJornada(Integer periodo, String jornada);
+    Optional<List<Estudiante>> findByPeriodoAndMunicipio(Integer periodo, String municipio);
+    Optional<List<Estudiante>> findByPeriodoAndAccesoInternet(Integer periodo, String internet);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingue(Integer periodo, String ubicacion, String coleBilingue);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndColeCaracter
             (Integer periodo, String ubicacion, String coleBilingue, String coleCaracter);
@@ -33,5 +38,6 @@ public interface EstudianteRepository extends MongoRepository<Estudiante, String
             (Integer periodo, String ubicacion, String coleBilingue, String coleCaracter, String coleJornada);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndColeCaracterAndColeJornadaAndGenero
             (Integer periodo, String ubicacion, String coleBilingue, String coleCaracter, String coleJornada, Character genero);
-    
+
+
 }

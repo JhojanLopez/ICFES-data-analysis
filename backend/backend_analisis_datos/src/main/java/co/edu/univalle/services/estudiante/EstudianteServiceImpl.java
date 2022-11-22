@@ -80,6 +80,36 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
     @Override
+    public List<Estudiante> findByPeriodoAndColeBilingue(Integer periodo, String bilingue) {
+        return estudianteRepository.findByPeriodoAndColeBilingue(periodo,bilingue).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndColeCaracter(Integer periodo, String caracter) {
+        return estudianteRepository.findByPeriodoAndColeCaracter(periodo,caracter).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndJornada(Integer periodo, String jornada) {
+        return estudianteRepository.findByPeriodoAndColeJornada(periodo,jornada).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndGenero(Integer periodo, Character genero) {
+        return estudianteRepository.findByPeriodoAndGenero(periodo,genero).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndMunicipio(Integer periodo, String municipio) {
+        return estudianteRepository.findByPeriodoAndMunicipio(periodo,municipio).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndInternet(Integer periodo, String internet) {
+        return estudianteRepository.findByPeriodoAndAccesoInternet(periodo,internet).orElse(Collections.emptyList());
+    }
+
+    @Override
     public List<Estudiante> findByAll() {
         return estudianteRepository.findAll();
     }

@@ -32,11 +32,30 @@ public class FilterServiceImpl implements FilterService {
                 return Collections.singletonList(
                         estudianteService.findByPeriodoAndUbicacion((Integer) filter.getParamsMap().get("periodo"),
                                 String.valueOf(filter.getParamsMap().get("ubicacion"))));
-            case PERIODO_GENERO:
-                log.info("en periodo genero handler");
+            case PERIODO_BILINGUE:
                 return Collections.singletonList(
-                        estudianteRepository.findByPeriodoAndGenero((Integer) filter.getParamsMap().get("periodo"),
+                        estudianteService.findByPeriodoAndColeBilingue((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("bilingue"))));
+            case PERIODO_CARACTER:
+                return Collections.singletonList(
+                        estudianteService.findByPeriodoAndColeCaracter((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("caracter"))));
+            case PERIODO_JORNADA:
+                return  Collections.singletonList(
+                        estudianteService.findByPeriodoAndJornada((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("jornada"))));
+            case PERIODO_GENERO:
+                return Collections.singletonList(
+                        estudianteService.findByPeriodoAndGenero((Integer) filter.getParamsMap().get("periodo"),
                                 (Character) filter.getParamsMap().get("genero")));
+            case PERIODO_MUNICIPIO:
+                return Collections.singletonList(
+                        estudianteService.findByPeriodoAndMunicipio((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("municipio"))));
+            case PERIODO_INTERNET:
+                return Collections.singletonList(
+                        estudianteService.findByPeriodoAndInternet((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("internet"))));
             default:
                 return Collections.emptyList();
         }
@@ -57,20 +76,35 @@ public class FilterServiceImpl implements FilterService {
     @Override
     public HashMap<String, Object> getParamsMap(List<Object> params) {
 //        List<Object> params = Arrays.asList(periodo,coleAreaUbicacion, coleBilingue, coleCaracter, coleJornada, genero,
-//                municipio, estrato, accesoInternet);
+//                municipio,accesoInternet);
 
         HashMap<String, Object> response = new HashMap<>();
         if (params.get(0) != null) response.put("periodo", params.get(0));
         if (params.get(1) != null) response.put("ubicacion", params.get(1));
+        if (params.get(2) != null) response.put("bilingue", params.get(2));
+        if (params.get(3) != null) response.put("caracter", params.get(3));
+        if (params.get(4) != null) response.put("jornada", params.get(4));
         if (params.get(5) != null) response.put("genero", params.get(5));
+        if (params.get(6) != null) response.put("municipio", params.get(6));
+        if (params.get(7) != null) response.put("internet", params.get(7));
         return response;
     }
 
     @Override
     public Filter getFilter(List<Object> params) {
         HashMap<String, Object> paramsMap = this.getParamsMap(params);
+        if (paramsMap.get("periodo") != null && paramsMap.get("internet") != null)
+            return new Filter(FilterType.PERIODO_INTERNET, paramsMap);
+        if (paramsMap.get("periodo") != null && paramsMap.get("municipio") != null)
+            return new Filter(FilterType.PERIODO_MUNICIPIO, paramsMap);
         if (paramsMap.get("periodo") != null && paramsMap.get("genero") != null)
             return new Filter(FilterType.PERIODO_GENERO, paramsMap);
+        if (paramsMap.get("periodo") != null && paramsMap.get("jornada") != null)
+            return new Filter(FilterType.PERIODO_JORNADA, paramsMap);
+        if (paramsMap.get("periodo") != null && paramsMap.get("caracter") != null)
+            return new Filter(FilterType.PERIODO_CARACTER, paramsMap);
+        if (paramsMap.get("periodo") != null && paramsMap.get("bilingue") != null)
+            return new Filter(FilterType.PERIODO_BILINGUE, paramsMap);
         if (paramsMap.get("periodo") != null && paramsMap.get("ubicacion") != null)
             return new Filter(FilterType.PERIODO_UBICACION, paramsMap);
         if (paramsMap.get("periodo") != null) return new Filter(FilterType.PERIODO, paramsMap);

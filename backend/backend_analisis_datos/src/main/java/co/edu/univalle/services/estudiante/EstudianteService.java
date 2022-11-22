@@ -14,5 +14,11 @@ public interface EstudianteService {
     Estudiante findById(String id);
     List<Estudiante> findByPeriodo(Integer periodo);
     List<Estudiante> findByPeriodoAndUbicacion(Integer periodo, String ubicacion);
+    List<Estudiante> findByPeriodoAndColeBilingue(Integer periodo, String bilingue);
+    List<Estudiante> findByPeriodoAndColeCaracter(Integer periodo, String caracter);
+    List<Estudiante> findByPeriodoAndJornada(Integer periodo, String jornada);
+    List<Estudiante> findByPeriodoAndGenero(Integer periodo, Character genero);
+    List<Estudiante> findByPeriodoAndMunicipio(Integer periodo, String municipio);
+    List<Estudiante> findByPeriodoAndInternet(Integer periodo, String internet);
     List<Estudiante> findByAll();
 }
