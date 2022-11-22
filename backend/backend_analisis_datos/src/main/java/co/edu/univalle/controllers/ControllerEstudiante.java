@@ -23,7 +23,7 @@ public class ControllerEstudiante {
 
     @GetMapping()//query param
     public ResponseEntity<?> getAllEstudianteByParams
-            (@RequestParam(required = false) Integer periodo, @RequestParam(required = false) String coleAreaUbicacion, @RequestParam(required = false) String coleBilingue,
+            (@RequestParam Integer periodo, @RequestParam(required = false) String coleAreaUbicacion, @RequestParam(required = false) String coleBilingue,
              @RequestParam(required = false) String coleCaracter,@RequestParam(required = false) String coleJornada, @RequestParam(required = false) Character genero,
              @RequestParam(required = false) String municipio, @RequestParam(required = false) String accesoInternet) {
 
