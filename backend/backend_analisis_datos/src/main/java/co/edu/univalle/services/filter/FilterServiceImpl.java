@@ -24,7 +24,7 @@ public class FilterServiceImpl implements FilterService {
     @Override
     public List<Object> filterHandler(List<Object> params) throws RuntimeException {
         Filter filter = this.getFilter(params);
-
+        log.info("filtro a aplicar: \n"+filter.toString());
         switch (filter.getType()) {
             case PERIODO:
                 return Collections.singletonList(estudianteService.findByPeriodo((Integer) filter.getParamsMap().get("periodo")));
@@ -56,7 +56,31 @@ public class FilterServiceImpl implements FilterService {
                 return Collections.singletonList(
                         estudianteService.findByPeriodoAndInternet((Integer) filter.getParamsMap().get("periodo"),
                                 String.valueOf(filter.getParamsMap().get("internet"))));
-            default:
+            case PERIODO_UBICACION_BILINGUE:
+                return Collections.singletonList(
+                        estudianteService.findByPeriodoAndUbicacionAndBilingue((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("ubicacion")), String.valueOf(filter.getParamsMap().get("bilingue"))));
+            case PERIODO_UBICACION_CARACTER:
+                return Collections.singletonList(
+                        estudianteService.findByPeriodoAndUbicacionAndCaracter((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("ubicacion")), String.valueOf(filter.getParamsMap().get("caracter"))));
+            case PERIODO_UBICACION_JORNADA:
+                return Collections.singletonList(
+                        estudianteService.findByPeriodoAndUbicacionAndJornada((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("ubicacion")), String.valueOf(filter.getParamsMap().get("jornada"))));
+            case PERIODO_UBICACION_GENERO:
+                return Collections.singletonList(
+                        estudianteService.findByPeriodoAndUbicacionAndGenero((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("ubicacion")), (Character) filter.getParamsMap().get("genero")));
+            case PERIODO_UBICACION_MUNICIPIO:
+                return Collections.singletonList(
+                        estudianteService.findByPeriodoAndUbicacionAndMunicipio((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("ubicacion")), String.valueOf(filter.getParamsMap().get("municipio"))));
+            case PERIODO_UBICACION_INTERNET:
+                return Collections.singletonList(
+                        estudianteService.findByPeriodoAndUbicacionAndInternet((Integer) filter.getParamsMap().get("periodo"),
+                                String.valueOf(filter.getParamsMap().get("ubicacion")), String.valueOf(filter.getParamsMap().get("internet"))));
+                default:
                 return Collections.emptyList();
         }
     }
@@ -93,6 +117,25 @@ public class FilterServiceImpl implements FilterService {
     @Override
     public Filter getFilter(List<Object> params) {
         HashMap<String, Object> paramsMap = this.getParamsMap(params);
+
+        if (paramsMap.get("periodo") != null && paramsMap.get("ubicacion") != null
+                && paramsMap.get("internet") != null)
+            return new Filter(FilterType.PERIODO_UBICACION_INTERNET, paramsMap);
+        if (paramsMap.get("periodo") != null && paramsMap.get("ubicacion") != null
+                && paramsMap.get("municipio") != null)
+            return new Filter(FilterType.PERIODO_UBICACION_MUNICIPIO, paramsMap);
+        if (paramsMap.get("periodo") != null && paramsMap.get("ubicacion") != null
+                && paramsMap.get("genero") != null)
+            return new Filter(FilterType.PERIODO_UBICACION_GENERO, paramsMap);
+        if (paramsMap.get("periodo") != null && paramsMap.get("ubicacion") != null
+                && paramsMap.get("jornada") != null)
+            return new Filter(FilterType.PERIODO_UBICACION_JORNADA, paramsMap);
+        if (paramsMap.get("periodo") != null && paramsMap.get("ubicacion") != null
+                && paramsMap.get("caracter") != null)
+            return new Filter(FilterType.PERIODO_UBICACION_CARACTER, paramsMap);
+        if (paramsMap.get("periodo") != null && paramsMap.get("ubicacion") != null
+                && paramsMap.get("bilingue") != null)
+            return new Filter(FilterType.PERIODO_UBICACION_BILINGUE, paramsMap);
         if (paramsMap.get("periodo") != null && paramsMap.get("internet") != null)
             return new Filter(FilterType.PERIODO_INTERNET, paramsMap);
         if (paramsMap.get("periodo") != null && paramsMap.get("municipio") != null)

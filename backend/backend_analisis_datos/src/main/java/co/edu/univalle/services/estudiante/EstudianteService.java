@@ -8,7 +8,6 @@ public interface EstudianteService {
     List<String> getAllAreaUbicacion();
     List<String> getAllCaracterColegio();
     List<String> getAllJornadaColegio();
-    List<String> getAllEstrato();
     List<Character> getAllGenero();
     List<String> getAllMunicipio();
     Estudiante findById(String id);
@@ -21,4 +20,16 @@ public interface EstudianteService {
     List<Estudiante> findByPeriodoAndMunicipio(Integer periodo, String municipio);
     List<Estudiante> findByPeriodoAndInternet(Integer periodo, String internet);
     List<Estudiante> findByAll();
+
+    List<Estudiante> findByPeriodoAndUbicacionAndBilingue(Integer periodo, String internet, String bilingue);
+
+    List<Estudiante> findByPeriodoAndUbicacionAndCaracter(Integer periodo, String ubicacion, String caracter);
+
+    List<Estudiante> findByPeriodoAndUbicacionAndJornada(Integer periodo, String ubicacion, String caracter);
+
+    List<Estudiante> findByPeriodoAndUbicacionAndGenero(Integer periodo, String ubicacion, Character genero);
+
+    List<Estudiante> findByPeriodoAndUbicacionAndMunicipio(Integer periodo, String ubicacion, String municipio);
+
+    List<Estudiante> findByPeriodoAndUbicacionAndInternet(Integer periodo, String ubicacion, String internet);
 }

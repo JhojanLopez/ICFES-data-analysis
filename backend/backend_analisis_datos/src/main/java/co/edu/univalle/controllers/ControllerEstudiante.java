@@ -64,11 +64,6 @@ public class ControllerEstudiante {
         return ResponseEntity.ok(estudianteService.getAllJornadaColegio());
     }
 
-    @GetMapping("/estrato")
-    public ResponseEntity<?> getAllEstrato() {
-        return ResponseEntity.ok(estudianteService.getAllEstrato());
-    }
-
     @GetMapping("/genero")
     public ResponseEntity<?> getAllGenero() {
         return ResponseEntity.ok(estudianteService.getAllGenero());

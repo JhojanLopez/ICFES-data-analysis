@@ -41,14 +41,6 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
     @Override
-    public List<String> getAllEstrato() {
-        HashSet<Estrato> allEstrato = estudianteRepository.findAllEstrato();
-        return allEstrato.stream()
-                .map(Estrato::getFAMI_ESTRATOVIVIENDA)
-                .collect(Collectors.toList());
-    }
-
-    @Override
     public List<Character> getAllGenero() {
         HashSet<Genero> allGenero = estudianteRepository.findAllGenero();
         return allGenero.stream()
@@ -112,5 +104,41 @@ public class EstudianteServiceImpl implements EstudianteService {
     @Override
     public List<Estudiante> findByAll() {
         return estudianteRepository.findAll();
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndUbicacionAndBilingue(Integer periodo, String ubicacion, String bilingue) {
+        return estudianteRepository.findByPeriodoAndColeAreaUbicacionAndColeBilingue
+                (periodo,ubicacion,bilingue).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndUbicacionAndCaracter(Integer periodo, String ubicacion, String caracter) {
+        return estudianteRepository.findByPeriodoAndColeAreaUbicacionAndColeCaracter
+                (periodo,ubicacion,caracter).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndUbicacionAndJornada(Integer periodo, String ubicacion, String jornada) {
+        return estudianteRepository.findByPeriodoAndColeAreaUbicacionAndColeJornada
+                (periodo,ubicacion,jornada).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndUbicacionAndGenero(Integer periodo, String ubicacion, Character genero) {
+        return estudianteRepository.findByPeriodoAndColeAreaUbicacionAndGenero
+                (periodo,ubicacion,genero).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndUbicacionAndMunicipio(Integer periodo, String ubicacion, String municipio) {
+       return estudianteRepository.findByPeriodoAndColeAreaUbicacionAndMunicipio
+                (periodo,ubicacion,municipio).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public List<Estudiante> findByPeriodoAndUbicacionAndInternet(Integer periodo, String ubicacion, String internet) {
+        return estudianteRepository.findByPeriodoAndColeAreaUbicacionAndAccesoInternet
+                (periodo,ubicacion,internet).orElse(Collections.emptyList());
     }
 }

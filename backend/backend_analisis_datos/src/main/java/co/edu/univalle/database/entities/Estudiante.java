@@ -26,8 +26,6 @@ public class Estudiante {
     private Character genero;
     @Field(name = "ESTU_MCPIO_RESIDE")
     private String municipio;
-    @Field(name = "FAMI_ESTRATOVIVIENDA")
-    private String estrato;
     @Field(name = "FAMI_TIENEINTERNET")
     private String accesoInternet;//opc Si, No
     @Field(name = "PERIODO")

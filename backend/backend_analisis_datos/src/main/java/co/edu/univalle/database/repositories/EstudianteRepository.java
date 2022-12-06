@@ -20,8 +20,6 @@ public interface EstudianteRepository extends MongoRepository<Estudiante, String
     HashSet<Genero> findAllGenero();
     @Query(value = "{}", fields = "{ 'ESTU_MCPIO_RESIDE' : 1, '_id' : 0 }")
     HashSet<Municipio> findAllMunicipio();
-    @Query(value = "{}", fields = "{ 'FAMI_ESTRATOVIVIENDA' : 1, '_id' : 0 }")
-    HashSet<Estrato> findAllEstrato();
     List<Estudiante> findAll();
     Optional<List<Estudiante>> findByPeriodo(Integer periodo);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacion(Integer periodo, String ubicacion);
@@ -32,6 +30,11 @@ public interface EstudianteRepository extends MongoRepository<Estudiante, String
     Optional<List<Estudiante>> findByPeriodoAndMunicipio(Integer periodo, String municipio);
     Optional<List<Estudiante>> findByPeriodoAndAccesoInternet(Integer periodo, String internet);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingue(Integer periodo, String ubicacion, String coleBilingue);
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeCaracter(Integer periodo, String ubicacion, String coleCaracter);
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeJornada(Integer periodo, String ubicacion, String coleJornada);
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndGenero(Integer periodo, String ubicacion, Character genero);
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndMunicipio(Integer periodo, String ubicacion, String municipio);
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndAccesoInternet(Integer periodo, String ubicacion, String internet);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndColeCaracter
             (Integer periodo, String ubicacion, String coleBilingue, String coleCaracter);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndColeCaracterAndColeJornada
