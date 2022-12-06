@@ -24,6 +24,6 @@
 
 ## Modelo de base de datos
 
-A partir del proceso etl se obtienen los datos a manejar. Se le denomina data a la collection(tabla).
+A partir del proceso etl se obtienen los datos a manejar. Se le denomina estudiante a la collection(tabla).
 
 ![img.png](assets/img.png)
