@@ -71,8 +71,13 @@
   ![img.png](assets/img_9.png)
   ![img.png](assets/img_10.png)
 
-
-- Finalmente eliminamos columnas inncesarias y exportamos el csv final a utilizar.
-
+- Eliminamos registros no utiles de acuerdo al caracter de colegio y al municipio:
+  
 
   ![img.png](assets/img_11.png)
+
+
+- Finalmente eliminamos otras columnas inncesarias como : ['Unnamed: 0.1', 'Unnamed: 0', 'DESEMP_INGLES', 'COLE_DEPTO_UBICACION', 'FAMI_TIENECOMPUTADOR', 'FAMI_EDUCACIONMADRE', 'FAMI_EDUCACIONPADRE', 'FAMI_ESTRATOVIVIENDA'] y exportamos el csv final a utilizar.
+
+
+  ![img.png](assets/img_12.png)
