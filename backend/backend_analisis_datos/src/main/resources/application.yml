@@ -1,0 +1,23 @@
+#mongo config
+spring:
+  data:
+    mongodb:
+      host: localhost
+      username: root
+      password: root
+      port: 27017
+      database: icfes_valle
+      authentication-database: admin
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  main:
+    allow-bean-definition-overriding: true
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG

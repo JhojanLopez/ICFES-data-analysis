@@ -1,0 +1,10 @@
+
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
+E
+etl_icfes_valle.ipynb,0/2/0211d920d2ed6251cbd1be75b75ecaf6a06dfe54
+9
+	readme.md,2/7/275d783e298228506068436512433d343feb52aa
+>
+data_valle.csv,4/0/404add74a0d49248ab989b7316534c5bcff59042
