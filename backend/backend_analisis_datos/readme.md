@@ -7,7 +7,7 @@ de manera que expone los datos en un api rest.
 
 
 ## Controladores
-Se exponen los endpoints en la siguiente [ruta](http://localhost:8080/api/api/v1/estudiante), la documentacion de la api esta hecha con 
+Se exponen los endpoints en la siguiente [ruta](http://localhost:8080/api/api/v1/estudiante), la documentacion del api rest esta hecha con 
 [swagger.](http://localhost:8080/swagger-ui.html)
 
 ## Despliegue

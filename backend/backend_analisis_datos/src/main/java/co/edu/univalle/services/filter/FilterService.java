@@ -10,6 +10,7 @@ public interface FilterService {
     List<Object> filterHandler(List<Object> params);
     boolean validateParams(List<Object> params);
     boolean validateAllParamsNoNull(List<Object> params);
+    boolean validateMaxParams(List<Object> params);
     HashMap<String,Object> getParamsMap(List<Object> params);
     Filter getFilter(List<Object> params);
 }

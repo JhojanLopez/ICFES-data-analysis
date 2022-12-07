@@ -24,17 +24,19 @@ public class ControllerEstudiante {
     @GetMapping()//query param
     public ResponseEntity<?> getAllEstudianteByParams
             (@RequestParam Integer periodo, @RequestParam(required = false) String coleAreaUbicacion, @RequestParam(required = false) String coleBilingue,
-             @RequestParam(required = false) String coleCaracter,@RequestParam(required = false) String coleJornada, @RequestParam(required = false) Character genero,
+             @RequestParam(required = false) String coleCaracter, @RequestParam(required = false) String coleJornada, @RequestParam(required = false) Character genero,
              @RequestParam(required = false) String municipio, @RequestParam(required = false) String accesoInternet) {
 
         try {
-            List<Object> params = Arrays.asList(periodo,coleAreaUbicacion, coleBilingue, coleCaracter, coleJornada, genero,
+            List<Object> params = Arrays.asList(periodo, coleAreaUbicacion, coleBilingue, coleCaracter, coleJornada, genero,
                     municipio, accesoInternet);
 
             if (filterService.validateParams(params)) {
+
                 List<Object> response = filterService.filterHandler(params);
-                if(response.isEmpty()) return ResponseEntity.notFound().build();
+                if (response.isEmpty()) return ResponseEntity.notFound().build();
                 return ResponseEntity.ok(response);
+
             }
 
         } catch (RuntimeException e) {

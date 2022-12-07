@@ -35,12 +35,90 @@ public interface EstudianteRepository extends MongoRepository<Estudiante, String
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndGenero(Integer periodo, String ubicacion, Character genero);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndMunicipio(Integer periodo, String ubicacion, String municipio);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndAccesoInternet(Integer periodo, String ubicacion, String internet);
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndColeCaracter(Integer periodo, String bilingue, String caracter);
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndColeJornada(Integer periodo, String bilingue, String jornada);
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndGenero(Integer periodo, String bilingue, Character genero);
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndMunicipio(Integer periodo, String bilingue, String muncipio);
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndAccesoInternet(Integer periodo, String bilingue, String internet);
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracterAndColeJornada(Integer periodo, String caracter, String jornada);
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracterAndGenero(Integer periodo, String caracter, Character genero);
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracterAndMunicipio(Integer periodo, String caracter, String municipio);
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracterAndAccesoInternet(Integer periodo, String caracter, String internet);
+    Optional<List<Estudiante>> findByPeriodoAndColeJornadaAndGenero(Integer periodo, String jornada, Character genero);
+    Optional<List<Estudiante>> findByPeriodoAndColeJornadaAndMunicipio(Integer periodo, String jornada, String municipio);
+    Optional<List<Estudiante>> findByPeriodoAndColeJornadaAndAccesoInternet(Integer periodo, String jornada, String internet);
+    Optional<List<Estudiante>> findByPeriodoAndGeneroAndMunicipio(Integer periodo, Character genero, String municipio);
+    Optional<List<Estudiante>> findByPeriodoAndGeneroAndAccesoInternet(Integer periodo, Character genero, String internet);
+    Optional<List<Estudiante>> findByPeriodoAndMunicipioAndAccesoInternet(Integer periodo, String municipio, String internet);
     Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndColeCaracter
             (Integer periodo, String ubicacion, String coleBilingue, String coleCaracter);
-    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndColeCaracterAndColeJornada
-            (Integer periodo, String ubicacion, String coleBilingue, String coleCaracter, String coleJornada);
-    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndColeCaracterAndColeJornadaAndGenero
-            (Integer periodo, String ubicacion, String coleBilingue, String coleCaracter, String coleJornada, Character genero);
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndColeJornada
+            (Integer periodo, String ubicacion, String coleBilingue, String coleJornada);
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndGenero
+            (Integer periodo, String ubicacion, String coleBilingue, Character genero);
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndMunicipio
+            (Integer periodo, String ubicacion, String coleBilingue, String municipio);
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeBilingueAndAccesoInternet
+            (Integer periodo, String ubicacion, String bilingue, String internet);
 
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeCaracterAndColeJornada(Integer periodo, String ubicacion, String caracter, String jornada);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeCaracterAndGenero(Integer periodo, String ubicacion, String caracter, Character genero);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeCaracterAndMunicipio(Integer periodo, String ubicacion, String caracter, String municipio);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeCaracterAndAccesoInternet(Integer periodo, String ubicacion, String caracter, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeJornadaAndGenero(Integer periodo, String ubicacion, String jornada, Character genero);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeJornadaAndMunicipio(Integer periodo, String ubicacion, String jornada, String municipio);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndColeJornadaAndAccesoInternet(Integer periodo, String ubicacion, String jornada, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndGeneroAndMunicipio(Integer periodo, String ubicacion, Character genero, String municipio);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndGeneroAndAccesoInternet(Integer periodo, String ubicacion, Character genero, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeAreaUbicacionAndMunicipioAndAccesoInternet(Integer periodo, String ubicacion, String municipio, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndColeCaracterAndColeJornada(Integer periodo, String bilingue, String caracter, String jornada);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndColeCaracterAndGenero(Integer periodo, String bilingue, String caracter, Character genero);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndColeCaracterAndMunicipio(Integer periodo, String bilingue, String caracter, String muncipio);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndColeCaracterAndAccesoInternet(Integer periodo, String bilingue, String caracter, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndColeJornadaAndGenero(Integer periodo, String bilingue, String jornada, Character genero);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndColeJornadaAndMunicipio(Integer periodo, String bilingue, String jornada, String municipio);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndGeneroAndMunicipio(Integer periodo, String bilingue, Character genero, String municipio);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndMunicipioAndAccesoInternet(Integer periodo, String bilingue, String municipio, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracterAndColeJornadaAndGenero(Integer periodo, String caracter, String jornada, Character genero);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracterAndColeJornadaAndMunicipio(Integer periodo, String caracter, String jornada, String municipio);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracterAndGeneroAndMunicipio(Integer periodo, String caracter, Character genero, String municipio);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracterAndGeneroAndAccesoInternet(Integer periodo, String caracter, Character genero, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeJornadaAndGeneroAndMunicipio(Integer periodo, String jornada, Character genero, String municipio);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeJornadaAndMunicipioAndAccesoInternet(Integer periodo, String jornada, String municipio, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndMunicipioAndGeneroAndAccesoInternet(Integer periodo, String municipio, Character genero, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndColeJornadaAndAccesoInternet(Integer periodo, String bilingue, String jornada, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeBilingueAndGeneroAndAccesoInternet(Integer periodo, String bilingue, Character genero, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracterAndColeJornadaAndAccesoInternet(Integer periodo, String caracter, String jornada, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeCaracterAndMunicipioAndAccesoInternet(Integer periodo, String caracter, String municipio, String internet);
+
+    Optional<List<Estudiante>> findByPeriodoAndColeJornadaAndGeneroAndAccesoInternet(Integer periodo, String jornada, Character genero, String internet);
 
 }
